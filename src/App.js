@@ -15,12 +15,13 @@ const Movie = () => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const key = process.env.REACT_APP_API_KEY;
 
   const fetchMovie = async () => {
-    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=072cb789b6107e68dbe94c743b830c5b&language=en-US&page=${page}`;
+    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=${page}`;
     const data = await axios.get(URL, {
       headers: {
-        Authorization: "Bearer 072cb789b6107e68dbe94c743b830c5b",
+        Authorization: "Bearer API KEY",
         Accept: "application/json",
       },
     });
